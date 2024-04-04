@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Calculator</title>
+    <title>Battlebot Design Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator">
-        <h2>Quadratic Equation Solver</h2>
-        <p>Equation format: ax² + bx + c = 0</p>
-        <input type="number" id="a-coef" placeholder="a" />
-        <input type="number" id="b-coef" placeholder="b" />
-        <input type="number" id="c-coef" placeholder="c" />
-        <button onclick="solveQuadratic()">Solve</button>
-        <div id="solution"></div>
+    <div class="container">
+        <h1>Battlebot Design Calculators</h1>
+        <div class="tile" id="weapon">
+            <h2>Weapon</h2>
+            <p>Calculate weapon impact, speed, and energy.</p>
+            <button onclick="openWeaponCalculator()">Calculate</button>
+        </div>
+        <div class="tile" id="drive">
+            <h2>Drive</h2>
+            <p>Estimate drive power, speed, and torque.</p>
+            <button onclick="openDriveCalculator()">Calculate</button>
+        </div>
+        <div class="tile" id="power">
+            <h2>Power</h2>
+            <p>Compute power requirements and battery life.</p>
+            <button onclick="openPowerCalculator()">Calculate</button>
+        </div>
+        <div class="tile" id="overall">
+            <h2>Overall Characteristics</h2>
+            <p>Analyze overall bot characteristics and performance metrics.</p>
+            <button onclick="openOverallCalculator()">Calculate</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
