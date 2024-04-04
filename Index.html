@@ -1,8 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-  
+    <div class="calculator">
+        <h2>Quadratic Equation Solver</h2>
+        <p>Equation format: ax² + bx + c = 0</p>
+        <input type="number" id="a-coef" placeholder="a" />
+        <input type="number" id="b-coef" placeholder="b" />
+        <input type="number" id="c-coef" placeholder="c" />
+        <button onclick="solveQuadratic()">Solve</button>
+        <div id="solution"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
