@@ -13,6 +13,7 @@ function calculateDrive(systemVoltage) {
     const wheelDiameterInMeters = wheelDiameter/1000; // Convert diameter from mm to m
     const wheelRadius = wheelDiameter / 2; // Convert diameter in mm to radius in mm
     const gravity = 9.80665; //Gravitational Constant
+    const robotWeightInKg = robotWeight / 1000;
     
     // Calculations (Simplified)
     const maxPowerDraw = systemVoltage * maxCurrentDraw; //in Watts
@@ -20,7 +21,7 @@ function calculateDrive(systemVoltage) {
     const rpm_rad = rpm * (2*Math.PI)/60;
     const robotSpeed = ((rpm / gearing) * wheelRadius); // Speed in meters per minute, converted to m/s
     const torque = (maxPowerDraw / rpm_rad) / gearing; // Simplified torque calculation
-    const maxPushingForce = coefficientOfFriction * robotWeight * 9.81; // Simplified pushing force calculation
+    const maxPushingForce = coefficientOfFriction * robotWeightInKg * 9.81; // Simplified pushing force calculation
 
     // Output values
     document.getElementById("torque").value = torque.toFixed(2);
