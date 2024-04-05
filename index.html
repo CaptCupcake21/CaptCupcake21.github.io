@@ -15,9 +15,56 @@
             <button onclick="openWeaponCalculator()">Calculate</button>
         </div>
         <div class="tile" id="drive">
-            <h2>Drive</h2>
-            <p>Estimate drive power, speed, and torque.</p>
-            <button onclick="openDriveCalculator()">Calculate</button>
+<!-- Inside the <div class="container"> in your index.html, update the "Drive" tile as follows: -->
+<div class="tile" id="drive">
+    <h2>Drive</h2>
+    <div class="input-group">
+        <label>Motor Kv (RPM/V):</label>
+        <input type="number" id="motorKv">
+    </div>
+    <div class="input-group">
+        <label>Internal Resistance (Ω):</label>
+        <input type="number" id="internalResistance" step="0.01">
+    </div>
+    <div class="input-group">
+        <label>Max Current Draw (A):</label>
+        <input type="number" id="maxCurrentDraw">
+    </div>
+    <div class="input-group">
+        <label>Max Power Draw (W):</label>
+        <input type="number" id="maxPowerDraw">
+    </div>
+    <div class="input-group">
+        <label>Gearing (as ratio, e.g., 4 for 4:1):</label>
+        <input type="number" id="gearing" step="0.01">
+    </div>
+    <div class="input-group">
+        <label>Wheel Diameter (inches):</label>
+        <input type="number" id="wheelDiameter">
+    </div>
+    <div class="input-group">
+        <label>Coefficient of Friction:</label>
+        <input type="number" id="coefficientOfFriction" step="0.01">
+    </div>
+    <button onclick="calculateDrive()">Calculate</button>
+    <div class="output-group">
+        <label>Torque (Nm):</label>
+        <output id="torque"></output>
+    </div>
+    <div class="output-group">
+        <label>RPM:</label>
+        <output id="rpm"></output>
+    </div>
+    <div class="output-group">
+        <label>Robot Speed (m/s):</label>
+        <output id="robotSpeed"></output>
+    </div>
+    <div class="output-group">
+        <label>Max Theoretical Pushing Force (N):</label>
+        <output id="maxPushingForce"></output>
+    </div>
+</div>
+
         </div>
         <div class="tile" id="power">
             <h2>Power</h2>
