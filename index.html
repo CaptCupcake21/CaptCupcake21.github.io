@@ -12,10 +12,53 @@
         <div class="tile" id="weapon">
             <h2>Weapon</h2>
             <p>Calculate weapon impact, speed, and energy.</p>
-            <button onclick="openWeaponCalculator()">Calculate</button>
+            <div class="tile" id="weapon">
+                <h2>Weapon</h2>
+                <div class="input-group">
+                    <label>Weapon Motor Kv (RPM/V):</label>
+                    <input type="number" id="weapon_motorKv">
+                </div>
+                <div class="input-group">
+                    <label>Weapon Gearing (as ratio, e.g., 4 for 4:1):</label>
+                    <input type="number" id="weapon_gearing" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label>Weapon Diameter (mm):</label>
+                    <input type="number" id="weaponDiameter">
+                </div>
+                <div class="input-group">
+                    <label>Max Current Draw (A):</label>
+                    <input type="number" id="maxCurrentDraw">
+                </div>
+                <div class="input-group">
+                    <label>Moment of Inertia (g*mm^2):</label>
+                    <input type="number" id="momentOfInertia">
+                </div>
+                <div class="input-group">
+                    <label>Weapon Weight (g):</label>
+                    <input type="number" id="weaponWeight">
+                </div>
+                <button onclick="calculateWeapon(systemVoltage)">Calculate</button>
+                <div class="output-group">
+                    <label>Tip Speed (m/s):</label>
+                    <output id="tipSpeed"></output>
+                </div>
+                <div class="output-group">
+                    <label>Weapon RPM:</label>
+                    <output id="weapon_rpm"></output>
+                </div>
+                <div class="output-group">
+                    <label>Torque (Nm):</label>
+                    <output id="torque"></output>
+                </div>
+                <div class="output-group">
+                    <label>Kinetic Energy (J):</label>
+                    <output id="kineticEnergy"></output>
+                </div>
+            </div>
         </div>
 <!-- Inside the <div class="container"> in your index.html, update the "Drive" tile as follows: -->
-<div class="tile" id="drive">
+        <div class="tile" id="drive">
     <h2>Drive</h2>
     <div class="input-group">
         <label>System Voltage (V):</label>
@@ -66,9 +109,7 @@
         <label>Max Theoretical Pushing Force (N):</label>
         <output id="maxPushingForce"></output>
     </div>
-</div>
-
-
+        </div>
         </div>
         <div class="tile" id="power">
             <h2>Power</h2>
