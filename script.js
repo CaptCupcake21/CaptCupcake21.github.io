@@ -1,18 +1,25 @@
-function calculateDrive() {
+const systemVoltage = 3*4.2;
+function calculateDrive(systemVoltage) {
     // Input values
     const motorKv = parseFloat(document.getElementById("motorKv").value);
     const gearing = parseFloat(document.getElementById("gearing").value);
-    const wheelDiameter = parseFloat(document.getElementById("wheelDiameter").value); // in inches
+    const wheelDiameter = parseFloat(document.getElementById("wheelDiameter").value); // in mm
     const coefficientOfFriction = parseFloat(document.getElementById("coefficientOfFriction").value);
-    const robotWeight = 50; // Assuming a robot weight of 50kg for calculation, adjust as necessary
+    const robotWeight = parseFloat(document.getElementById("robotWeight").value); //in grams
+    const maxCurrentDraw = parseFloat(document.getElementById("maxCurrentDraw").value); //in Amps
 
+    
     // Constants
-    const wheelRadius = wheelDiameter * 0.0254 / 2; // Convert diameter in inches to radius in meters
-
+    const wheelDiameterInMeters = wheelDiameter/1000; // Convert diameter from mm to m
+    const wheelRadius = wheelDiameter / 2; // Convert diameter in mm to radius in mm
+    const gravity = 9.80665; //Gravitational Constant
+    
     // Calculations (Simplified)
-    const rpm = motorKv * 7.4; // Assuming a 7.4V battery, adjust as necessary
-    const robotSpeed = (rpm / gearing) * (wheelDiameter * Math.PI) / 60; // Speed in meters per minute, converted to m/s
-    const torque = (0.105 * rpm) / gearing; // Simplified torque calculation
+    const maxPowerDraw = systemVoltage * maxCurrentDraw; //in Watts
+    const rpm = motorKv * systemVoltage; // Assuming a 7.4V battery, adjust as necessary
+    const rpm_rad = rpm * (2*Math.PI)/60;
+    const robotSpeed = ((rpm / gearing) * wheelRadius); // Speed in meters per minute, converted to m/s
+    const torque = (maxPowerDraw / rpm_rad) / gearing; // Simplified torque calculation
     const maxPushingForce = coefficientOfFriction * robotWeight * 9.81; // Simplified pushing force calculation
 
     // Output values
