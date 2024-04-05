@@ -14,10 +14,13 @@
             <p>Calculate weapon impact, speed, and energy.</p>
             <button onclick="openWeaponCalculator()">Calculate</button>
         </div>
-        <div class="tile" id="drive">
 <!-- Inside the <div class="container"> in your index.html, update the "Drive" tile as follows: -->
 <div class="tile" id="drive">
     <h2>Drive</h2>
+    <div class="input-group">
+        <label>System Voltage (V):</label>
+        <input type="number" id="systemVoltage" value="12.6" readonly> <!-- Assuming a readonly field for systemVoltage if it's set globally -->
+    </div>
     <div class="input-group">
         <label>Motor Kv (RPM/V):</label>
         <input type="number" id="motorKv">
@@ -31,22 +34,22 @@
         <input type="number" id="maxCurrentDraw">
     </div>
     <div class="input-group">
-        <label>Max Power Draw (W):</label>
-        <input type="number" id="maxPowerDraw">
-    </div>
-    <div class="input-group">
         <label>Gearing (as ratio, e.g., 4 for 4:1):</label>
         <input type="number" id="gearing" step="0.01">
     </div>
     <div class="input-group">
-        <label>Wheel Diameter (inches):</label>
+        <label>Wheel Diameter (mm):</label>
         <input type="number" id="wheelDiameter">
     </div>
     <div class="input-group">
         <label>Coefficient of Friction:</label>
         <input type="number" id="coefficientOfFriction" step="0.01">
     </div>
-    <button onclick="calculateDrive()">Calculate</button>
+    <div class="input-group">
+        <label>Robot Weight (grams):</label>
+        <input type="number" id="robotWeight">
+    </div>
+    <button onclick="calculateDrive(systemVoltage)">Calculate</button> <!-- Adjusted to include systemVoltage parameter -->
     <div class="output-group">
         <label>Torque (Nm):</label>
         <output id="torque"></output>
@@ -64,6 +67,7 @@
         <output id="maxPushingForce"></output>
     </div>
 </div>
+
 
         </div>
         <div class="tile" id="power">
