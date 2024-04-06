@@ -3,125 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battlebot Design Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>BattleBot Calculator</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <div class="container">
-        <h1>Battlebot Design Calculators</h1>
-        <div class="tile" id="weapon">
-            <h2>Weapon</h2>
-            <p>Calculate weapon impact, speed, and energy.</p>
-            <div class="tile" id="weapon">
-                <h2>Weapon</h2>
-                <div class="input-group">
-                    <label>Weapon Motor Kv (RPM/V):</label>
-                    <input type="number" id="weapon_motorKv">
-                </div>
-                <div class="input-group">
-                    <label>Weapon Gearing (as ratio, e.g., 4 for 4:1):</label>
-                    <input type="number" id="weapon_gearing" step="0.01">
-                </div>
-                <div class="input-group">
-                    <label>Weapon Diameter (mm):</label>
-                    <input type="number" id="weaponDiameter">
-                </div>
-                <div class="input-group">
-                    <label>Max Current Draw (A):</label>
-                    <input type="number" id="maxCurrentDraw">
-                </div>
-                <div class="input-group">
-                    <label>Moment of Inertia (g*mm^2):</label>
-                    <input type="number" id="momentOfInertia">
-                </div>
-                <div class="input-group">
-                    <label>Weapon Weight (g):</label>
-                    <input type="number" id="weaponWeight">
-                </div>
-                <button onclick="calculateWeapon(systemVoltage)">Calculate</button>
-                <div class="output-group">
-                    <label>Tip Speed (m/s):</label>
-                    <output id="tipSpeed"></output>
-                </div>
-                <div class="output-group">
-                    <label>Weapon RPM:</label>
-                    <output id="weapon_rpm"></output>
-                </div>
-                <div class="output-group">
-                    <label>Torque (Nm):</label>
-                    <output id="torque"></output>
-                </div>
-                <div class="output-group">
-                    <label>Kinetic Energy (J):</label>
-                    <output id="kineticEnergy"></output>
-                </div>
-            </div>
-        </div>
-<!-- Inside the <div class="container"> in your index.html, update the "Drive" tile as follows: -->
-        <div class="tile" id="drive">
-    <h2>Drive</h2>
-    <div class="input-group">
-        <label>System Voltage (V):</label>
-        <input type="number" id="systemVoltage" value="12.6" readonly> <!-- Assuming a readonly field for systemVoltage if it's set globally -->
-    </div>
-    <div class="input-group">
-        <label>Motor Kv (RPM/V):</label>
-        <input type="number" id="motorKv">
-    </div>
-    <div class="input-group">
-        <label>Internal Resistance (Ω):</label>
-        <input type="number" id="internalResistance" step="0.01">
-    </div>
-    <div class="input-group">
-        <label>Max Current Draw (A):</label>
-        <input type="number" id="maxCurrentDraw">
-    </div>
-    <div class="input-group">
-        <label>Gearing (as ratio, e.g., 4 for 4:1):</label>
-        <input type="number" id="gearing" step="0.01">
-    </div>
-    <div class="input-group">
-        <label>Wheel Diameter (mm):</label>
-        <input type="number" id="wheelDiameter">
-    </div>
-    <div class="input-group">
-        <label>Coefficient of Friction:</label>
-        <input type="number" id="coefficientOfFriction" step="0.01">
-    </div>
-    <div class="input-group">
-        <label>Robot Weight (grams):</label>
-        <input type="number" id="robotWeight">
-    </div>
-    <button onclick="calculateDrive(systemVoltage)">Calculate</button> <!-- Adjusted to include systemVoltage parameter -->
-    <div class="output-group">
-        <label>Torque (Nm):</label>
-        <output id="torque"></output>
-    </div>
-    <div class="output-group">
-        <label>RPM:</label>
-        <output id="rpm"></output>
-    </div>
-    <div class="output-group">
-        <label>Robot Speed (m/s):</label>
-        <output id="robotSpeed"></output>
-    </div>
-    <div class="output-group">
-        <label>Max Theoretical Pushing Force (N):</label>
-        <output id="maxPushingForce"></output>
-    </div>
-        </div>
-        </div>
-        <div class="tile" id="power">
-            <h2>Power</h2>
-            <p>Compute power requirements and battery life.</p>
-            <button onclick="openPowerCalculator()">Calculate</button>
-        </div>
-        <div class="tile" id="overall">
-            <h2>Overall Characteristics</h2>
-            <p>Analyze overall bot characteristics and performance metrics.</p>
-            <button onclick="openOverallCalculator()">Calculate</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <h1>BattleBot Calculator</h1>
+    
+    <!-- General Inputs -->
+    <section id="general-inputs">
+        <h2>General Inputs</h2>
+        <label>Weight of Robot in g: <input type="number" id="robotMass"></label>
+        <label>Length of Match in Seconds: <input type="number" id="matchLength"></label>
+        <label>Distance Between Wheels in mm: <input type="number" id="distBetweenWheels"></label>
+    </section>
+    
+    <!-- Power Inputs -->
+    <section id="power-inputs">
+        <h2>Power Inputs</h2>
+        <label>Number of Cells in Battery: <input type="number" id="cellCount"></label>
+        <label>Capacity of Battery in mAh: <input type="number" id="batteryCapacity"></label>
+    </section>
+    
+    <!-- Drive Inputs -->
+    <section id="drive-inputs">
+        <h2>Drive Inputs</h2>
+        <label>Number of Drive Motors on Robot: <input type="number" id="numDriveMotor"></label>
+        <label>Diameter of Drive Wheels in mm: <input type="number" id="wheelDiameter"></label>
+        <label>Kv of Drive Motors: <input type="number" id="driveMotorKv"></label>
+        <label>Internal Resistance of Drive Motors in Ohms: <input type="number" id="driveMotorInternalResistance"></label>
+        <label>Max Current Draw of Motor in Amps: <input type="number" id="driveMotorCurrentDraw"></label>
+        <label>Proportion of Full Drive Power Typically Used: <input type="number" id="driveIntensitySlider" step="0.01" min="0" max="1"></label>
+        <label>Coefficient of Friction Value for Wheels: <input type="number" id="frictionSlider" step="0.1" min="0" max="1"></label>
+        <label>Ratio of Input (Motor) Speed to Output Speed: <input type="number" id="driveGearing" step="0.01"></label>
+        <label>Proportion of Match Spent at Full Drive Power: <input type="number" id="driveMaxPowerSlider" step="0.01" min="0" max="1"></label>
+    </section>
+    
+    <!-- Weapon Inputs -->
+    <section id="weapon-inputs">
+        <h2>Weapon Inputs</h2>
+        <label>Number of Weapon Motors on Robot: <input type="number" id="numWeaponMotor"></label>
+        <label>Kv of Weapon Motor: <input type="number" id="weaponMotorKv"></label>
+        <label>Internal Resistance of Weapon Motor in Ohms: <input type="number" id="weaponMotorInternalResistance"></label>
+        <label>Max Current Draw of Motor in Amps: <input type="number" id="weaponMotorCurrentDraw"></label>
+        <label>Effective Radius of Weapon in mm: <input type="number" id="weaponRadius"></label>
+        <label>Number of Impactors on Weapon: <input type="number" id="numImpactors"></label>
+        <label>Moment of Inertia Value in g*mm^2: <input type="number" id="momentOfInertia"></label>
+        <label>Ratio of Input (Motor) Speed to Output Speed (Weapon Gearing): <input type="number" id="weaponGearing" step="0.01"></label>
+        <label>Proportion of Max Weapon Power Most Typically Used: <input type="number" id="weaponIntensity" step="0.01" min="0" max="1"></label>
+        <label>Proportion of Match Spent at Full Weapon Power: <input type="number" id="weaponMaxPowerSlider" step="0.01" min="0" max="1"></label>
+    </section>
+    
+    <button onclick="calculateResults()">Calculate</button>
+    
+    <!-- Outputs -->
+    <section id="outputs">
+        <h2>Outputs</h2>
+        <div>Estimated Current Available: <span id="currentAvailable"></span> A</div>
+        <div>Expected Total Current Usage: <span id="totalCurrentUsage"></span> A</div>
+        <div>Drive System Current Usage: <span id="driveSystemCurrentUsage"></span> A</div>
+        <div>Weapon System Current Usage: <span id="weaponSystemCurrentUsage"></span> A</div>
+        <!-- Add more output containers as needed -->
+    </section>
+
+    <script src="script.js"></script> <!-- Link to your JS file -->
 </body>
 </html>
