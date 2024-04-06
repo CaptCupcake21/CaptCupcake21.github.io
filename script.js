@@ -1,4 +1,4 @@
-function calculateRobotCombat() {
+function calculateResults() {
     // Constants
     const gravity = 9.80665;
     const cellVoltage = 4.2;
