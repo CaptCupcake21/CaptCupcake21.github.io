@@ -79,4 +79,4 @@ function calculateResults() {
 }
 
 // Assuming you have a button in your HTML to trigger this calculation:
-document.getElementById("calculateButton").addEventListener("click", calculateRobotCombat);
+document.getElementById("calculateResults").addEventListener("click", calculateResults);
