@@ -73,6 +73,7 @@ function calculateResults() {
     document.getElementById("driveSpeed").textContent = `${driveSpeed.toFixed(2)} m/s`;
     document.getElementById("pushingPower").textContent = `${pushingPower.toFixed(2)} N`;
     document.getElementById("driveTorque").textContent = `${driveTorque.toFixed(2)} Nm`;
+    document.getElementById("weaponRPM").textContent = `${weaponRPM.toFixed(2)} RPM`;
     document.getElementById("tipSpeed").textContent = `${tipSpeed.toFixed(2)} m/s`;
     document.getElementById("weaponKE").textContent = `${weaponKE.toFixed(2)} J`;
     document.getElementById("bite").textContent = `${bite.toFixed(2)} mm`;
