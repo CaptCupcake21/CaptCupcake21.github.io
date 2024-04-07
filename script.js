@@ -68,14 +68,14 @@ function calculateResults() {
     const bite = driveSpeed * biteTime * 1000; // Convert to mm
 
     // Display Results
-    document.getElementById("currentAvailable").textContent = `Estimated Current Available: ${currentAvailable.toFixed(2)} A`;
-    document.getElementById("totalCurrentUsage").textContent = `Expected Current Usage: ${totalCurrentUsage.toFixed(2)} A`;
-    document.getElementById("driveSpeed").textContent = `Drive Speed is: ${driveSpeed.toFixed(2)} m/s`;
-    document.getElementById("pushingPower").textContent = `Pushing Power is: ${pushingPower.toFixed(2)} N`;
-    document.getElementById("driveTorque").textContent = `Drive Torque is: ${driveTorque.toFixed(2)} Nm`;
-    document.getElementById("tipSpeed").textContent = `Weapon Tip Speed is: ${tipSpeed.toFixed(2)} m/s`;
-    document.getElementById("weaponKE").textContent = `Weapon Kinetic Energy is: ${weaponKE.toFixed(2)} J`;
-    document.getElementById("bite").textContent = `Weapon Bite is: ${bite.toFixed(2)} mm`;
+    document.getElementById("currentAvailable").textContent = `${currentAvailable.toFixed(2)} A`;
+    document.getElementById("totalCurrentUsage").textContent = `${totalCurrentUsage.toFixed(2)} A`;
+    document.getElementById("driveSpeed").textContent = `${driveSpeed.toFixed(2)} m/s`;
+    document.getElementById("pushingPower").textContent = `${pushingPower.toFixed(2)} N`;
+    document.getElementById("driveTorque").textContent = `${driveTorque.toFixed(2)} Nm`;
+    document.getElementById("tipSpeed").textContent = `${tipSpeed.toFixed(2)} m/s`;
+    document.getElementById("weaponKE").textContent = `${weaponKE.toFixed(2)} J`;
+    document.getElementById("bite").textContent = `${bite.toFixed(2)} mm`;
 }
 
 // Assuming you have a button in your HTML to trigger this calculation:
