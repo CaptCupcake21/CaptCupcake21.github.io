@@ -20,7 +20,7 @@
     <!-- Power Inputs -->
     <section id="power-inputs">
         <h2>Power Inputs</h2>
-        <label>Number of Cells in Battery: <input type="number" id="cellCount" min="0" step="1"></label>
+        <label>Number of Cells in Battery: <input type="number" id="cellCount" min="1" step="1"></label>
         <label>Capacity of Battery in mAh: <input type="number" id="batteryCapacity" min="0"></label>
     </section>
     
@@ -28,9 +28,9 @@
     <section id="drive-inputs">
         <h2>Drive Inputs</h2>
         <label>Number of Drive Motors on Robot: <input type="number" id="numDriveMotor" min="0" step="1"></label>
-        <label>Diameter of Drive Wheels in mm: <input type="number" id="wheelDiameter" min="0"></label>
+        <label>Diameter of Drive Wheels in mm: <input type="number" id="wheelDiameter" min="0.01"></label>
         <label>Kv of Drive Motors: <input type="number" id="driveMotorKv" min="0"></label>
-        <label>Internal Resistance of Drive Motors in Ohms: <input type="number" id="driveMotorInternalResistance" min="0"></label>
+        <label>Internal Resistance of Drive Motors in Ohms: <input type="number" id="driveMotorInternalResistance" min="0.01"></label>
         <label>Max Current Draw of Motor in Amps: <input type="number" id="driveMotorCurrentDraw" min="0"></label>
         <label>Proportion of Full Drive Power Typically Used: <input type="number" id="driveIntensitySlider" step="0.01" min="0" max="1"></label>
         <label>Coefficient of Friction Value for Wheels: <input type="number" id="frictionSlider" step="0.1" min="0" max="1"></label>
@@ -43,10 +43,10 @@
         <h2>Weapon Inputs</h2>
         <label>Number of Weapon Motors on Robot: <input type="number" id="numWeaponMotor" min="0" step="1"></label>
         <label>Kv of Weapon Motor: <input type="number" id="weaponMotorKv" min="0"></label>
-        <label>Internal Resistance of Weapon Motor in Ohms: <input type="number" id="weaponMotorInternalResistance" min="0"></label>
+        <label>Internal Resistance of Weapon Motor in Ohms: <input type="number" id="weaponMotorInternalResistance" min="0.01"></label>
         <label>Max Current Draw of Motor in Amps: <input type="number" id="weaponMotorCurrentDraw" min="0"></label>
-        <label>Effective Radius of Weapon in mm: <input type="number" id="weaponRadius" min="0"></label>
-        <label>Number of Impactors on Weapon: <input type="number" id="numImpactors" min="0" step="1"></label>
+        <label>Effective Radius of Weapon in mm: <input type="number" id="weaponRadius" min="0.01"></label>
+        <label>Number of Impactors on Weapon: <input type="number" id="numImpactors" min="1" step="1"></label>
         <label>Moment of Inertia Value in g*mm^2: <input type="number" id="momentOfInertia" min="0"> </label>
         <label>Ratio of Input (Motor) Speed to Output Speed (Weapon Gearing): <input type="number" id="weaponGearing" step="0.01" min="0"></label>
         <label>Proportion of Max Weapon Power Most Typically Used: <input type="number" id="weaponIntensity" step="0.01" min="0" max="1"></label>
