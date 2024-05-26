@@ -3,55 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BattleBot Calculator</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <title>Calculator</title>
 </head>
 <body>
-    <h1>BattleBot Calculator</h1>
-        <label for="unitSystem">Select Unit System:</label>
-    <select id="unitSystem">
-        <option value="metric">Metric</option>
-        <option value="english">English</option>
+    <!-- Input fields -->
+    <label for="cellCount">Cell Count:</label>
+    <input type="number" id="cellCount">
+
+    <label for="wheelDiameter">Wheel Diameter:</label>
+    <input type="number" id="wheelDiameter">
+    <select id="wheelDiameterUnit">
+        <option value="mm">mm</option>
+        <option value="inch">inch</option>
     </select>
-    <!-- Power Inputs -->
-    <section id="power-inputs">
-        <h2>Power Inputs</h2>
-        <label>Number of Cells in Battery: <input type="number" id="cellCount" min="1" step="1" value = "1"></label>
-    </section>
-    
-    <!-- Drive Inputs -->
-    <section id="drive-inputs">
-        <h2>Drive Inputs</h2>
-        <label>Diameter of Drive Wheels in mm: <input type="number" id="wheelDiameter" min="0.01" value = "1"></label>
-        <label>RPM of Drive Motors: <input type="number" id="driveMotorRPM" min="0" value = "0"></label>
-        <label>Proportion of Full Drive Power Typically Used: <input type="number" id="driveThrottlePercent" step="0.01" min="0" max="1" value = "0.5"></label>
-        <label>Ratio of Input Speed to Output Speed (Motor/Wheel): <input type="number" id="driveGearing" step="0.01" min="0" value = "1"></label>
-    </section>
-    
-    <!-- Weapon Inputs -->
-    <section id="weapon-inputs">
-        <h2>Weapon Inputs</h2>
-        <label>Kv of Weapon Motor: <input type="number" id="weaponMotorKv" min="0" value = "0"></label>
-        <label>Effective Radius of Weapon in mm: <input type="number" id="weaponRadius" min="0.01" value = "10"></label>
-        <label>Number of Impactors on Weapon: <input type="number" id="numImpactors" min="1" step="1" value = "1"></label>
-        <label>Moment of Inertia Value in g*mm^2: <input type="number" id="momentOfInertia" min="0" value = "0"> </label>
-        <label>Ratio of Input Speed to Output Speed (Motor/Weapon): <input type="number" id="weaponGearing" step="0.01" min="0" value = "1"></label>
-        <label>Proportion of Max Weapon Power Most Typically Used: <input type="number" id="weaponThrottlePercent" step="0.01" min="0" max="1" value = "0.5"></label>
-    </section>
-    
-    <button onclick="calculateResults()">Calculate</button>
-    
-    <!-- Outputs -->
-    <section id="outputs">
-        <h2>Outputs</h2>
-        <div>Drive Speed is: <span id="driveSpeed"></span></div>
-        <div>Weapon RPM is: <span id="weaponRPM"></span></div>
-        <div>Weapon Tip Speed is: <span id="tipSpeed"></span></div>
-        <div>Kinetic Energy of the Weapon is: <span id="weaponKE"></span></div>
-        <div>The Average Bite Depth is: <span id="bite"></span></div>
 
-    </section>
+    <label for="driveMotorRPM">Drive Motor RPM:</label>
+    <input type="number" id="driveMotorRPM">
 
-    <script src="script.js"></script> <!-- Link to your JS file -->
+    <label for="driveThrottlePercent">Drive Throttle Percent:</label>
+    <input type="number" id="driveThrottlePercent">
+
+    <label for="driveGearing">Drive Gearing:</label>
+    <input type="number" id="driveGearing">
+
+    <label for="weaponMotorKv">Weapon Motor Kv:</label>
+    <input type="number" id="weaponMotorKv">
+
+    <label for="weaponRadius">Weapon Radius:</label>
+    <input type="number" id="weaponRadius">
+    <select id="weaponRadiusUnit">
+        <option value="mm">mm</option>
+        <option value="inch">inch</option>
+    </select>
+
+    <label for="numImpactors">Number of Impactors:</label>
+    <input type="number" id="numImpactors">
+
+    <label for="momentOfInertia">Moment of Inertia:</label>
+    <input type="number" id="momentOfInertia">
+    <select id="momentOfInertiaUnit">
+        <option value="gmm^2">g*mm^2</option>
+        <option value="ozin^2">oz*in^2</option>
+    </select>
+
+    <label for="weaponGearing">Weapon Gearing:</label>
+    <input type="number" id="weaponGearing">
+
+    <label for="weaponThrottlePercent">Weapon Throttle Percent:</label>
+    <input type="number" id="weaponThrottlePercent">
+
+    <!-- Output fields -->
+    <div id="results">
+        <p>Drive Speed: <span id="driveSpeed"></span></p>
+        <p>Weapon RPM: <span id="weaponRPM"></span></p>
+        <p>Tip Speed: <span id="tipSpeed"></span></p>
+        <p>Weapon KE: <span id="weaponKE"></span></p>
+        <p>Bite: <span id="bite"></span></p>
+    </div>
+
+    <button id="calculateResults">Calculate Results</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
