@@ -33,14 +33,14 @@ function calculateResults() {
 
     // Drive Calculations
     const driveMotorRPM_Rad = driveMotorRPM * ((2 * pi) / 60);
-    const wheelRadius = wheelDiameter / 2 / 1000;
-    const driveSpeed = (driveMotorRPM_Rad / driveGearing) * wheelRadius;
+    const wheelRadius = (wheelDiameter / 2) / 1000;
+    const driveSpeed = (driveMotorRPM_Rad * driveGearing) * wheelRadius;
 
     // Weapon Calculations
     const weaponMotorRPM = weaponMotorKv * systemVoltage;
     const weaponMotorRPM_Rad = weaponMotorRPM * ((2 * pi) / 60);
-    const weaponRPM = weaponMotorRPM / weaponGearing;
-    const weaponRPM_Rad = weaponMotorRPM_Rad / weaponGearing;
+    const weaponRPM = weaponMotorRPM * weaponGearing;
+    const weaponRPM_Rad = weaponMotorRPM_Rad * weaponGearing;
     const weaponRadiusInM = weaponRadius / 1000;
     const tipSpeed = weaponRPM_Rad * weaponRadiusInM;
     const weaponKE = 0.5 * momentOfInertia * 1e-9 * (weaponRPM_Rad ** 2); // Convert g*mm^2 to kg*m^2
@@ -51,11 +51,12 @@ function calculateResults() {
     const mToFeet = 3.28084;
     const jToFtLbs = 0.737562;
     const mmToInches = 0.039370;
+    const msToMPH = 2.236936;
 
     // Display Results
     document.getElementById("driveSpeed").textContent = `Drive Speed: ${driveSpeed.toFixed(2)} m/s (${(driveSpeed * mToFeet).toFixed(2)} ft/s)`;
     document.getElementById("weaponRPM").textContent = `Weapon RPM: ${weaponRPM.toFixed(2)} RPM`;
-    document.getElementById("tipSpeed").textContent = `Tip Speed: ${tipSpeed.toFixed(2)} m/s (${(tipSpeed * mToFeet).toFixed(2)} ft/s)`;
+    document.getElementById("tipSpeed").textContent = `Tip Speed: ${tipSpeed.toFixed(2)} m/s (${(tipSpeed * msToMPH).toFixed(2)} ft/s)`;
     document.getElementById("weaponKE").textContent = `Weapon KE: ${weaponKE.toFixed(2)} J (${(weaponKE * jToFtLbs).toFixed(2)} ft·lbs)`;
     document.getElementById("bite").textContent = `Bite: ${bite.toFixed(2)} mm (${(bite * mmToInches).toFixed(2)} inches)`;
 }
