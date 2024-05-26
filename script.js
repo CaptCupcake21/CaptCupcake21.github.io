@@ -7,16 +7,16 @@ function calculateResults() {
     const cellCount = parseInt(document.getElementById("cellCount").value, 10);
 
     // Drive Inputs
-    const wheelDiameter = parseFloat(document.getElementById("wheelDiameter").value);
+    let wheelDiameter = parseFloat(document.getElementById("wheelDiameter").value);
     const driveMotorRPM = parseInt(document.getElementById("driveMotorRPM").value);
     const driveThrottlePercent = parseFloat(document.getElementById("driveThrottlePercent").value) / 100; // Convert percentage to decimal
     const driveGearing = parseFloat(document.getElementById("driveGearing").value);
 
     // Weapon Inputs
     const weaponMotorKv = parseInt(document.getElementById("weaponMotorKv").value, 10);
-    const weaponRadius = parseFloat(document.getElementById("weaponRadius").value);
+    let weaponRadius = parseFloat(document.getElementById("weaponRadius").value);
     const numImpactors = parseInt(document.getElementById("numImpactors").value, 10);
-    const momentOfInertia = parseFloat(document.getElementById("momentOfInertia").value);
+    let momentOfInertia = parseFloat(document.getElementById("momentOfInertia").value);
     const weaponGearing = parseFloat(document.getElementById("weaponGearing").value);
     const weaponThrottlePercent = parseFloat(document.getElementById("weaponThrottlePercent").value) / 100; // Convert percentage to decimal
 
