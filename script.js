@@ -1,5 +1,4 @@
 function convertUnits() {
-    console.log("calculateResults function is called.");
     const unitType = document.getElementById('units').value;
     const wheelDiameterInput = document.getElementById('wheelDiameter');
     const weaponRadiusInput = document.getElementById('weaponRadius');
@@ -66,11 +65,7 @@ function calculateResults() {
     // Conversion factors
     const mToFeet = 3.28084;
     const jToFtLbs = 0.737562;
-    console.log(driveSpeed);
-    console.log(weaponRPM);
-    console.log(tipSpeed);
-    console.log(weaponKE);
-    console.log(bite);
+
     // Display Results
     document.getElementById("driveSpeed").textContent = `Drive Speed: ${driveSpeed.toFixed(2)} m/s (${(driveSpeed * mToFeet).toFixed(2)} ft/s)`;
     document.getElementById("weaponRPM").textContent = `Weapon RPM: ${weaponRPM.toFixed(2)} RPM`;
