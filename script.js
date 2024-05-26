@@ -7,6 +7,9 @@ function calculateResults() {
 
     // Power Inputs
     const cellCount = parseInt(document.getElementById("cellCount").value, 10);
+    if (isNaN(cellCount) || cellCount <= 0) {
+        alert("Invalid cell count");
+        return;
     }
 
     // Drive Inputs
@@ -18,9 +21,13 @@ function calculateResults() {
 
     if (wheelDiameterUnit === "inch") {
         // Convert inches to millimeters for wheel diameter
-        wheelDiameter /= mmToInch;
+        wheelDiameter *= 25.4;
     }
 
+    if (isNaN(wheelDiameter) || wheelDiameter <= 0 || isNaN(driveMotorRPM) || driveMotorRPM <= 0 || isNaN(driveThrottlePercent) || driveThrottlePercent < 0 || driveThrottlePercent > 1 || isNaN(driveGearing) || driveGearing <= 0) {
+        alert("Invalid drive input");
+        return;
+    }
 
     // Weapon Inputs
     const weaponMotorKv = parseInt(document.getElementById("weaponMotorKv").value, 10);
@@ -34,7 +41,7 @@ function calculateResults() {
 
     if (weaponRadiusUnit === "inch") {
         // Convert inches to millimeters for weapon radius
-        weaponRadius /= mmToInch;
+        weaponRadius *= 25.4;
     }
 
     if (momentOfInertiaUnit === "ozin^2") {
@@ -42,6 +49,10 @@ function calculateResults() {
         momentOfInertia /= gmm2ToOzin2;
     }
 
+    if (isNaN(weaponMotorKv) || weaponMotorKv <= 0 || isNaN(weaponRadius) || weaponRadius <= 0 || isNaN(numImpactors) || numImpactors <= 0 || isNaN(momentOfInertia) || momentOfInertia <= 0 || isNaN(weaponGearing) || weaponGearing <= 0 || isNaN(weaponThrottlePercent) || weaponThrottlePercent < 0 || weaponThrottlePercent > 1) {
+        alert("Invalid weapon input");
+        return;
+    }
 
     // General Calculations
     const systemVoltage = cellCount * cellVoltage;
@@ -49,10 +60,10 @@ function calculateResults() {
     // Drive Calculations
     const driveMotorRPM_Rad = driveMotorRPM * ((2 * pi) / 60);
     const wheelRadius = wheelDiameter / 2 / 1000; // Convert to meters
-    const driveSpeed = (driveMotorRPM_Rad / driveGearing) * wheelRadius; // Speed in m/s
+    const driveSpeed = (driveMotorRPM_Rad / driveGearing) * wheelRadius * driveThrottlePercent; // Speed in m/s
 
     // Weapon Calculations
-    const weaponMotorRPM = weaponMotorKv * systemVoltage;
+    const weaponMotorRPM = weaponMotorKv * systemVoltage * weaponThrottlePercent;
     const weaponMotorRPM_Rad = weaponMotorRPM * ((2 * pi) / 60);
     const weaponRPM = weaponMotorRPM / weaponGearing;
     const weaponRPM_Rad = weaponMotorRPM_Rad / weaponGearing;
@@ -63,10 +74,10 @@ function calculateResults() {
     const bite = driveSpeed * biteTime * 1000; // Convert to mm
 
     // Convert outputs to English units
-    const driveSpeedInchPerSec = driveSpeed / mmToInch; // Convert m/s to inch/s
-    const tipSpeedInchPerSec = tipSpeed / mmToInch; // Convert m/s to inch/s
-    const weaponKEOzin2 = weaponKE / gmm2ToOzin2; // Convert J to oz*in^2
-    const biteInches = bite / mmToInch; // Convert mm to inches
+    const driveSpeedInchPerSec = driveSpeed / 0.0254; // Convert m/s to inch/s
+    const tipSpeedInchPerSec = tipSpeed / 0.0254; // Convert m/s to inch/s
+    const weaponKEOzin2 = weaponKE / 1.35582; // Convert J to ft*lb, then ft*lb to oz*in^2
+    const biteInches = bite / 25.4; // Convert mm to inches
 
     // Display Results
     document.getElementById("driveSpeed").textContent = `${driveSpeed.toFixed(2)} m/s (${driveSpeedInchPerSec.toFixed(2)} in/s)`;
