@@ -25,7 +25,7 @@ function calculateResults() {
 
     // Drive Calculations
     const driveMotorRPM_Rad = driveMotorRPM * ((2 * pi) / 60);
-    const wheelRadius = wheelDiameter / 2 / 1000;
+    const wheelRadius = (wheelDiameter/2) / 1000;
     const driveSpeed = (driveMotorRPM_Rad * driveGearing) * wheelRadius;
 
     // Weapon Calculations
