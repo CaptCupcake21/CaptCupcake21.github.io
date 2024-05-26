@@ -80,9 +80,12 @@
 
 <script src="script.js"></script>
 <script>
+    // Add event listener for the "Calculate" button
+    document.getElementById("calculateResults").addEventListener("click", calculateResults);
+</script>
+<script>
     // Add event listener for unit selection dropdown
     document.getElementById('units').addEventListener('change', convertUnits);
-
     // Trigger unit conversion when the page loads
     convertUnits();
 </script>    
