@@ -26,13 +26,13 @@ function calculateResults() {
     // Drive Calculations
     const driveMotorRPM_Rad = driveMotorRPM * ((2 * pi) / 60);
     const wheelRadius = wheelDiameter / 2 / 1000;
-    const driveSpeed = (driveMotorRPM_Rad / driveGearing) * wheelRadius;
+    const driveSpeed = (driveMotorRPM_Rad * driveGearing) * wheelRadius;
 
     // Weapon Calculations
     const weaponMotorRPM = weaponMotorKv * systemVoltage;
     const weaponMotorRPM_Rad = weaponMotorRPM * ((2 * pi) / 60);
-    const weaponRPM = weaponMotorRPM / weaponGearing;
-    const weaponRPM_Rad = weaponMotorRPM_Rad / weaponGearing;
+    const weaponRPM = weaponMotorRPM * weaponGearing;
+    const weaponRPM_Rad = weaponMotorRPM_Rad * weaponGearing;
     const weaponRadiusInM = weaponRadius / 1000;
     const tipSpeed = weaponRPM_Rad * weaponRadiusInM;
     const weaponKE = 0.5 * momentOfInertia * 1e-9 * (weaponRPM_Rad ** 2); // Convert g*mm^2 to kg*m^2
