@@ -28,7 +28,7 @@ function calculateResults() {
         // Convert wheel diameter and weapon radius to metric
         wheelDiameter *= 25.4; // Convert inches to mm
         weaponRadius *= 25.4; // Convert inches to mm
-        momentofInertia *= 18289.978313; //convert ozin^2 to gmm^2
+        momentOfInertia *= 18289.978313; //convert ozin^2 to gmm^2
     }
 
     // Drive Calculations
