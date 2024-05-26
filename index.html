@@ -13,16 +13,15 @@
     <section id="power-inputs">
         <h2>Power Inputs</h2>
         <label>Number of Cells in Battery: <input type="number" id="cellCount" min="1" step="1" value = "1"></label>
-        <label>Capacity of Battery in mAh: <input type="number" id="batteryCapacity" min="0" value = "50"></label>
     </section>
     
     <!-- Drive Inputs -->
     <section id="drive-inputs">
         <h2>Drive Inputs</h2>
         <label>Diameter of Drive Wheels in mm: <input type="number" id="wheelDiameter" min="0.01" value = "1"></label>
-        <label>Kv of Drive Motors: <input type="number" id="driveMotorKv" min="0" value = "0"></label>
-        <label>Proportion of Full Drive Power Typically Used: <input type="number" id="driveIntensitySlider" step="0.01" min="0" max="1" value = "0.5"></label>
-        <label>Ratio of Input (Motor) Speed to Output Speed: <input type="number" id="driveGearing" step="0.01" min="0" value = "1"></label>
+        <label>RPM of Drive Motors: <input type="number" id="driveMotorRPM" min="0" value = "0"></label>
+        <label>Proportion of Full Drive Power Typically Used: <input type="number" id="driveThrottlePercent" step="0.01" min="0" max="1" value = "0.5"></label>
+        <label>Ratio of Input Speed to Output Speed (Motor/Wheel): <input type="number" id="driveGearing" step="0.01" min="0" value = "1"></label>
     </section>
     
     <!-- Weapon Inputs -->
@@ -32,8 +31,8 @@
         <label>Effective Radius of Weapon in mm: <input type="number" id="weaponRadius" min="0.01" value = "10"></label>
         <label>Number of Impactors on Weapon: <input type="number" id="numImpactors" min="1" step="1" value = "1"></label>
         <label>Moment of Inertia Value in g*mm^2: <input type="number" id="momentOfInertia" min="0" value = "0"> </label>
-        <label>Ratio of Input (Motor) Speed to Output Speed (Weapon Gearing): <input type="number" id="weaponGearing" step="0.01" min="0" value = "1"></label>
-        <label>Proportion of Max Weapon Power Most Typically Used: <input type="number" id="weaponIntensity" step="0.01" min="0" max="1" value = "0.5"></label>
+        <label>Ratio of Input Speed to Output Speed (Motor/Weapon): <input type="number" id="weaponGearing" step="0.01" min="0" value = "1"></label>
+        <label>Proportion of Max Weapon Power Most Typically Used: <input type="number" id="weaponThrottlePercent" step="0.01" min="0" max="1" value = "0.5"></label>
     </section>
     
     <button onclick="calculateResults()">Calculate</button>
