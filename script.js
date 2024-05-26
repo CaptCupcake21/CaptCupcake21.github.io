@@ -50,6 +50,7 @@ function calculateResults() {
     // Conversion factors
     const mToFeet = 3.28084;
     const jToFtLbs = 0.737562;
+    const mmToInches = 0.039370;
 
     // Display Results
     document.getElementById("driveSpeed").textContent = `Drive Speed: ${driveSpeed.toFixed(2)} m/s (${(driveSpeed * mToFeet).toFixed(2)} ft/s)`;
