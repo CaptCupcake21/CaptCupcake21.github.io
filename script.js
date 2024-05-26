@@ -1,4 +1,5 @@
 function convertUnits() {
+    console.log("calculateResults function is called.");
     const unitType = document.getElementById('units').value;
     const wheelDiameterInput = document.getElementById('wheelDiameter');
     const weaponRadiusInput = document.getElementById('weaponRadius');
