@@ -69,8 +69,8 @@ function calculateResults() {
     console.log(driveSpeed);
     console.log(weaponRPM);
     console.log(tipSpeed);
-    console.log(WeaponKe);
-    console.log(Bite);
+    console.log(WeaponKE);
+    console.log(bite);
     // Display Results
     document.getElementById("driveSpeed").textContent = `Drive Speed: ${driveSpeed.toFixed(2)} m/s (${(driveSpeed * mToFeet).toFixed(2)} ft/s)`;
     document.getElementById("weaponRPM").textContent = `Weapon RPM: ${weaponRPM.toFixed(2)} RPM`;
