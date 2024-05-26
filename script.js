@@ -24,7 +24,7 @@ function calculateResults() {
     const systemVoltage = cellCount * cellVoltage;
 
     const unitType = document.getElementById('units').value;
-    if (unitType === 'english') {
+    if (unitType === 'English') {
         // Convert wheel diameter and weapon radius to metric
         wheelDiameter *= 25.4; // Convert inches to mm
         weaponRadius *= 25.4; // Convert inches to mm
