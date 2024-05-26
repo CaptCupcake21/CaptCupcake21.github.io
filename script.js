@@ -7,9 +7,6 @@ function calculateResults() {
 
     // Power Inputs
     const cellCount = parseInt(document.getElementById("cellCount").value, 10);
-    if (isNaN(cellCount) || cellCount <= 0) {
-        alert("Invalid cell count");
-        return;
     }
 
     // Drive Inputs
@@ -24,10 +21,6 @@ function calculateResults() {
         wheelDiameter /= mmToInch;
     }
 
-    if (isNaN(wheelDiameter) || wheelDiameter <= 0 || isNaN(driveMotorRPM) || driveMotorRPM <= 0 || isNaN(driveThrottlePercent) || driveThrottlePercent < 0 || driveThrottlePercent > 1 || isNaN(driveGearing) || driveGearing <= 0) {
-        alert("Invalid drive input");
-        return;
-    }
 
     // Weapon Inputs
     const weaponMotorKv = parseInt(document.getElementById("weaponMotorKv").value, 10);
@@ -49,10 +42,6 @@ function calculateResults() {
         momentOfInertia /= gmm2ToOzin2;
     }
 
-    if (isNaN(weaponMotorKv) || weaponMotorKv <= 0 || isNaN(weaponRadius) || weaponRadius <= 0 || isNaN(numImpactors) || numImpactors <= 0 || isNaN(momentOfInertia) || momentOfInertia <= 0 || isNaN(weaponGearing) || weaponGearing <= 0 || isNaN(weaponThrottlePercent) || weaponThrottlePercent < 0 || weaponThrottlePercent > 1) {
-        alert("Invalid weapon input");
-        return;
-    }
 
     // General Calculations
     const systemVoltage = cellCount * cellVoltage;
