@@ -79,6 +79,13 @@
 <p id="bite"></p>
 
 <script src="script.js"></script>
+<script>
+    // Add event listener for unit selection dropdown
+    document.getElementById('units').addEventListener('change', convertUnits);
+
+    // Trigger unit conversion when the page loads
+    convertUnits();
+</script>    
 
 </body>
 </html>
