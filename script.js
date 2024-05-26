@@ -67,19 +67,9 @@ function calculateResults() {
     const jToFtLbs = 0.737562;
 
     // Display Results
-    document.getElementById("driveSpeed").textContent = `
-        Drive Speed: ${driveSpeed.toFixed(2)} m/s (${(driveSpeed * mToFeet).toFixed(2)} ft/s)
-    `;
-    document.getElementById("weaponRPM").textContent = `
-        Weapon RPM: ${weaponRPM.toFixed(2)} RPM
-    `;
-    document.getElementById("tipSpeed").textContent = `
-        Tip Speed: ${tipSpeed.toFixed(2)} m/s (${(tipSpeed * mToFeet).toFixed(2)} ft/s)
-    `;
-    document.getElementById("weaponKE").textContent = `
-        Weapon KE: ${weaponKE.toFixed(2)} J (${(weaponKE * jToFtLbs).toFixed(2)} ft·lbs)
-    `;
-    document.getElementById("bite").textContent = `
-        Bite: ${bite.toFixed(2)} mm (${(bite * mmToInches).toFixed(2)} inches)
-    `;
+    document.getElementById("driveSpeed").textContent = `Drive Speed: ${driveSpeed.toFixed(2)} m/s (${(driveSpeed * mToFeet).toFixed(2)} ft/s)`;
+    document.getElementById("weaponRPM").textContent = `Weapon RPM: ${weaponRPM.toFixed(2)} RPM`;
+    document.getElementById("tipSpeed").textContent = `Tip Speed: ${tipSpeed.toFixed(2)} m/s (${(tipSpeed * mToFeet).toFixed(2)} ft/s)`;
+    document.getElementById("weaponKE").textContent = `Weapon KE: ${weaponKE.toFixed(2)} J (${(weaponKE * jToFtLbs).toFixed(2)} ft·lbs)`;
+    document.getElementById("bite").textContent = `Bite: ${bite.toFixed(2)} mm (${(bite * mmToInches).toFixed(2)} inches)`;
 }
