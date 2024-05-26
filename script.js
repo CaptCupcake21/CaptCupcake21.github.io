@@ -69,11 +69,11 @@ function calculateResults() {
     const biteInches = bite / mmToInch; // Convert mm to inches
 
     // Display Results
-    document.getElementById("driveSpeed").textContent = `${driveSpeed.toFixed(2)} m/s (${driveSpeedInchPerSec.toFixed(2)} inch/s)`;
+    document.getElementById("driveSpeed").textContent = `${driveSpeed.toFixed(2)} m/s (${driveSpeedInchPerSec.toFixed(2)} in/s)`;
     document.getElementById("weaponRPM").textContent = `${weaponRPM.toFixed(2)} RPM`;
-    document.getElementById("tipSpeed").textContent = `${tipSpeed.toFixed(2)} m/s (${tipSpeedInchPerSec.toFixed(2)} inch/s)`;
+    document.getElementById("tipSpeed").textContent = `${tipSpeed.toFixed(2)} m/s (${tipSpeedInchPerSec.toFixed(2)} in/s)`;
     document.getElementById("weaponKE").textContent = `${weaponKE.toFixed(2)} J (${weaponKEOzin2.toFixed(2)} oz*in^2)`;
-    document.getElementById("bite").textContent = `${bite.toFixed(2)} mm (${biteInches.toFixed(2)} inches)`;
+    document.getElementById("bite").textContent = `${bite.toFixed(2)} mm (${biteInches.toFixed(2)} in)`;
 }
 
 // Assuming you have a button in your HTML to trigger this calculation:
