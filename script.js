@@ -1,26 +1,3 @@
-function convertUnits() {
-    const unitType = document.getElementById('units').value;
-    const wheelDiameterInput = document.getElementById('wheelDiameter');
-    const weaponRadiusInput = document.getElementById('weaponRadius');
-    const momentOfInertiaInput = document.getElementById('momentOfInertia');
-    
-    // Conversion factors
-    const mmToInches = 0.0393701;
-    const gMm2ToLbFt2 = 2.20462e-6 * 0.000001;
-    
-    if (unitType === 'english') {
-        // Convert to English units
-        wheelDiameterInput.value = (wheelDiameterInput.value * mmToInches).toFixed(2);
-        weaponRadiusInput.value = (weaponRadiusInput.value * mmToInches).toFixed(2);
-        momentOfInertiaInput.value = (momentOfInertiaInput.value * gMm2ToLbFt2).toFixed(6);
-    } else {
-        // Convert to Metric units
-        wheelDiameterInput.value = (wheelDiameterInput.value / mmToInches).toFixed(2);
-        weaponRadiusInput.value = (weaponRadiusInput.value / mmToInches).toFixed(2);
-        momentOfInertiaInput.value = (momentOfInertiaInput.value / gMm2ToLbFt2).toFixed(2);
-    }
-}
-
 function calculateResults() {
     // Constants
     const cellVoltage = 3.7;
@@ -45,6 +22,14 @@ function calculateResults() {
 
     // General Calculations
     const systemVoltage = cellCount * cellVoltage;
+
+    const unitType = document.getElementById('units').value;
+    if (unitType === 'english') {
+        // Convert wheel diameter and weapon radius to metric
+        wheelDiameter *= 25.4; // Convert inches to mm
+        weaponRadius *= 25.4; // Convert inches to mm
+        momentofInertia *= 18289.978313; //convert ozin^2 to gmm^2
+    }
 
     // Drive Calculations
     const driveMotorRPM_Rad = driveMotorRPM * ((2 * pi) / 60);
