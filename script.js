@@ -1,6 +1,6 @@
 function calculateResults() {
     // Constants
-    const cellVoltage = 4.2;
+    const cellVoltage = 3.7;
     const pi = 3.141592653589793238;
 
     // Power Inputs
@@ -8,7 +8,7 @@ function calculateResults() {
 
     // Drive Inputs
     const wheelDiameter = parseFloat(document.getElementById("wheelDiameter").value);
-    const driveMotorRPM = parseInt(document.getElementById("driveMotorKv").value);
+    const driveMotorRPM = parseInt(document.getElementById("driveMotorRPM").value);
     const driveThrottlePercent = parseFloat(document.getElementById("driveIntensitySlider").value) / 100; // Convert percentage to decimal
     const driveGearing = parseFloat(document.getElementById("driveGearing").value);
 
@@ -24,7 +24,6 @@ function calculateResults() {
     const systemVoltage = cellCount * cellVoltage;
 
     // Drive Calculations
-    const driveMotorRPM = driveMotorKv * systemVoltage;
     const driveMotorRPM_Rad = driveMotorRPM * ((2 * pi) / 60);
     const wheelRadius = wheelDiameter / 2 / 1000;
     const driveSpeed = (driveMotorRPM_Rad / driveGearing) * wheelRadius;
