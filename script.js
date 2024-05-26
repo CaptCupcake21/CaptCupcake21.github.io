@@ -9,7 +9,7 @@ function calculateResults() {
     // Drive Inputs
     const wheelDiameter = parseFloat(document.getElementById("wheelDiameter").value);
     const driveMotorRPM = parseInt(document.getElementById("driveMotorRPM").value);
-    const driveThrottlePercent = parseFloat(document.getElementById("driveIntensitySlider").value) / 100; // Convert percentage to decimal
+    const driveThrottlePercent = parseFloat(document.getElementById("driveThrottlePercent").value) / 100; // Convert percentage to decimal
     const driveGearing = parseFloat(document.getElementById("driveGearing").value);
 
     // Weapon Inputs
@@ -18,7 +18,7 @@ function calculateResults() {
     const numImpactors = parseInt(document.getElementById("numImpactors").value, 10);
     const momentOfInertia = parseFloat(document.getElementById("momentOfInertia").value);
     const weaponGearing = parseFloat(document.getElementById("weaponGearing").value);
-    const weaponThrottlePercent = parseFloat(document.getElementById("weaponIntensity").value) / 100; // Convert percentage to decimal
+    const weaponThrottlePercent = parseFloat(document.getElementById("weaponThrottlePercent").value) / 100; // Convert percentage to decimal
 
     // General Calculations
     const systemVoltage = cellCount * cellVoltage;
