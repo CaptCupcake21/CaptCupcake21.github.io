@@ -37,9 +37,9 @@ function calculateResults() {
     const driveSpeed = ((driveMotorRPM_Rad * driveGearing) * wheelRadius)*driveThrottlePercent;
 
     // Weapon Calculations
-    const weaponMotorRPM = weaponMotorKv * systemVoltage;
+    const weaponMotorRPM = weaponMotorKv * systemVoltage * weaponThrottlePercent;
     const weaponMotorRPM_Rad = weaponMotorRPM * ((2 * pi) / 60);
-    const weaponRPM = weaponMotorRPM * weaponGearing * weaponThrottlePercent;
+    const weaponRPM = weaponMotorRPM * weaponGearing;
     const weaponRPM_Rad = weaponMotorRPM_Rad * weaponGearing;
     const weaponRadiusInM = weaponRadius / 1000;
     const tipSpeed = weaponRPM_Rad * weaponRadiusInM;
