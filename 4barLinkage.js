@@ -56,14 +56,14 @@ function solveLinkage() {
     if(th3_d >= 0){
         th3_real = 1;
     }
-    if(th3_d <= 0){
+    if(th3_d < 0){
         th3_real = 0;
     }
 
     if(th3p_d >= 0){
         th3p_real = 1;
     }
-    if(th3p_d <= 0){
+    if(th3p_d < 0){
         th3p_real = 0;
     }
 
