@@ -1,21 +1,3 @@
-function setup() {
-    createCanvas(400, 400).parent('canvasContainer');
-}
-
-function draw() {
-    background(255);
-    // Assuming linkage solution is done in solveLinkage()
-    if (linkagePoints) {
-        strokeWeight(2);
-        line(linkagePoints.A.x, linkagePoints.A.y, linkagePoints.B.x, linkagePoints.B.y);
-        line(linkagePoints.B.x, linkagePoints.B.y, linkagePoints.C.x, linkagePoints.C.y);
-        line(linkagePoints.C.x, linkagePoints.C.y, linkagePoints.D.x, linkagePoints.D.y);
-        line(linkagePoints.D.x, linkagePoints.D.y, linkagePoints.A.x, linkagePoints.A.y);
-    }
-}
-
-let linkagePoints = null;
-
 function solveLinkage() {
     let a = parseFloat(document.getElementById('length1').value);
     let b = parseFloat(document.getElementById('length2').value);
