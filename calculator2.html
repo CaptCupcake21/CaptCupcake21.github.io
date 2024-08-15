@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Bar Linkage Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <h2>4-Bar Linkage Calculator</h2>
+    <form id="linkageForm">
+        <label for="length1">Link 1 Length:</label>
+        <input type="number" id="length1" name="length1" value="100"><br><br>
+        <label for="length2">Link 2 Length:</label>
+        <input type="number" id="length2" name="length2" value="150"><br><br>
+        <label for="length3">Link 3 Length:</label>
+        <input type="number" id="length3" name="length3" value="100"><br><br>
+        <label for="length4">Link 4 Length:</label>
+        <input type="number" id="length4" name="length4" value="150"><br><br>
+        <label for="angle">Input Angle (degrees):</label>
+        <input type="number" id="angle" name="angle" value="45"><br><br>
+        <button type="button" onclick="solveLinkage()">Calculate</button>
+    </form>
+    <div id="output"></div>
+    <div id="canvasContainer"></div>
+    <script src="4barLinkage.js"></script>
+</body>
+</html>
