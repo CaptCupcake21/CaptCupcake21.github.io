@@ -8,9 +8,9 @@ function calculateResults() {
     // k Parameters
     let k1 = d/a;
     let k2 = d/c;
-    let k3 = ((a^2) - (b^2) + (c^2) + (d^2))/(2*a*c);
+    let k3 = ((a**2) - (b**2) + (c**2) + (d**2))/(2*a*c);
     let k4 = d/b;
-    let k5 = ((c^2) - (d^2) - (a^2) - (b^2))/(2*a*b);
+    let k5 = ((c**2) - (d**2) - (a**2) - (b**2))/(2*a*b);
 
     // Define A-F Terms
     let A = Math.cos(th2) - k1 - k2*Math.cos(th2) + k3;
@@ -21,10 +21,10 @@ function calculateResults() {
     let F = k1 + (k4 - 1)*Math.cos(th2) + k5;
     
     //Compute the Discriminants for Theta 3 to Determine if Values are Real
-    let th3_d =  (-E + (E^2 - 4*D*F))^0.5;
-    let th3p_d = (-E - (E^2 - 4*D*F))^0.5;
-    let th4_d = (-B + (B^2 - 4*A*C))^0.5;
-    let th4p_d = (-B - (B^2 - 4*A*C))^0.5;
+    let th3_d =  (-E + (E**2 - 4*D*F))**0.5;
+    let th3p_d = (-E - (E**2 - 4*D*F))**0.5;
+    let th4_d = (-B + (B**2 - 4*A*C))**0.5;
+    let th4p_d = (-B - (B**2 - 4*A*C))**0.5;
 
     //Find Solutions for th3 and th4
     let th3 = 2*Math.atan(th3_d/(2*D)) * (180/Math.PI);
