@@ -45,10 +45,10 @@ function solveLinkage() {
     let th4p_d = Math.SQRT1_2(-B - ((B^2 - 4*A*C)));
 
     //Find Solutions for th3 and th4
-    let th3 = 2*Math.atan(th3_d)/(2*D)) * (180/Math.PI);
-    let th3p = 2*Math.atan(th3p_d)/(2*D)) * (180/Math.PI);
-    let th4 = 2*Math.atan(th4_d)/(2*A)) * (180/Math.PI);
-    let th4p = 2*Math.atan(th4p_d)/(2*A)) * (180/Math.PI);
+    let th3 = 2*Math.atan(th3_d/(2*D)) * (180/Math.PI);
+    let th3p = 2*Math.atan(th3p_d/(2*D)) * (180/Math.PI);
+    let th4 = 2*Math.atan(th4_d/(2*A)) * (180/Math.PI);
+    let th4p = 2*Math.atan(th4p_d/(2*A)) * (180/Math.PI);
 
     //Determine if th3 and th3p are Real Values
     let th3_real;
