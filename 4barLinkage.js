@@ -71,18 +71,13 @@ function calculateResults() {
     if(th3_real != 1 && th3p != 1){
     
     }
+    console.log(th3_real);
+    console.log(th3p_real);
+    console.log(th3);
+    console.log(th3p);
+    console.log(th4);
+    console.log(th4p);
 
-    console.log(k1);
-    console.log(k2);
-    console.log(k3);
-    console.log(k4);
-    console.log(k5);
-    console.log(A);
-    console.log(B);
-    console.log(C);
-    console.log(D);
-    console.log(E);
-    console.log(F);
        
 }
 
