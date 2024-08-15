@@ -4,25 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4-Bar Linkage Calculator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background: linear-gradient(to right, #f8afff, #ffafbd);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        body {
+            padding-top: 50px; /* Ensures content doesn't go under the navbar */
+        }
+
+        .container {
+            width: 125%; /* Make the container 25% wider */
+            max-width: 750px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0E346D;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #0E346D;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="number"], button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #fefefe;
+            font-size: 16px;
+            color: #444;
+            display: block;
+        }
+
+        button {
+            background-color: #0E346D;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0b2859;
+        }
+
+        #canvasContainer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
+<nav class="topnav">
+    <a href="home.html">Home</a>
+    <a href="calculators.html">Calculators</a>
+    <a href="blog.html">Blog</a>
+</nav>
 <body>
-    <h2>4-Bar Linkage Calculator</h2>
-    <form id="linkageForm">
-        <label for="length1">Link 1 Length:</label>
-        <input type="number" id="length1" name="length1" value="100"><br><br>
-        <label for="length2">Link 2 Length:</label>
-        <input type="number" id="length2" name="length2" value="150"><br><br>
-        <label for="length3">Link 3 Length:</label>
-        <input type="number" id="length3" name="length3" value="100"><br><br>
-        <label for="length4">Link 4 Length:</label>
-        <input type="number" id="length4" name="length4" value="150"><br><br>
-        <label for="angle">Input Angle (degrees):</label>
-        <input type="number" id="angle" name="angle" value="45"><br><br>
-        <button type="button" onclick="solveLinkage()">Calculate</button>
-    </form>
-    <div id="output"></div>
-    <div id="canvasContainer"></div>
+    <div class="container">
+        <h2>4-Bar Linkage Calculator</h2>
+        <form id="linkageForm">
+            <label for="length1">Link 1 Length:</label>
+            <input type="number" id="length1" name="length1" value="100"><br><br>
+            <label for="length2">Link 2 Length:</label>
+            <input type="number" id="length2" name="length2" value="150"><br><br>
+            <label for="length3">Link 3 Length:</label>
+            <input type="number" id="length3" name="length3" value="100"><br><br>
+            <label for="length4">Link 4 Length:</label>
+            <input type="number" id="length4" name="length4" value="150"><br><br>
+            <label for="angle">Input Angle (degrees):</label>
+            <input type="number" id="angle" name="angle" value="45"><br><br>
+            <button type="button" onclick="solveLinkage()">Calculate</button>
+        </form>
+        <div id="output"></div>
+        <div id="canvasContainer"></div>
+    </div>
     <script src="4barLinkage.js"></script>
 </body>
 </html>
