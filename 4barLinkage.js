@@ -1,4 +1,4 @@
-function solveLinkage() {
+function calculateResults() {
     let a = parseFloat(document.getElementById('length1').value);
     let b = parseFloat(document.getElementById('length2').value);
     let c = parseFloat(document.getElementById('length3').value);
