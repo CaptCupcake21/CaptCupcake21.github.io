@@ -72,7 +72,7 @@ function solveLinkage() {
     let th4_open;
     let th3_crossed;
     let th4_crossed;
-    if((th3 != th3p) && (th3_real == 1) && (th3p_real == 1){
+    if((th3 != th3p) && (th3_real == 1) && (th3p_real == 1)){
         th3_open = th3p;
         th4_open = th4p;
         th3_crossed = th3;
