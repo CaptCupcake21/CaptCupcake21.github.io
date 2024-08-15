@@ -8,9 +8,9 @@ function calculateResults() {
     // k Parameters
     let k1 = d/a;
     let k2 = d/c;
-    let k3 = (a^2 - b^2 + c^2 - d^2)/(2*a*c);
+    let k3 = ((a^2) - (b^2) + (c^2) - (d^2))/(2*a*c);
     let k4 = d/b;
-    let k5 = (c^2 - d^2 - a^2 - b^2)/(2*a*b);
+    let k5 = ((c^2) - (d^2) - (a^2) - (b^2))/(2*a*b);
 
     // Define A-F Terms
     let A = Math.cos(th2) - k1 - k2*Math.cos(th2) + k3;
