@@ -39,10 +39,10 @@ function solveLinkage() {
     let F = k1 + (k4 - 1)*Math.cos(th2) + k5;
     
     //Compute the Discriminants for Theta 3 to Determine if Values are Real
-    let th3_d =  (-E + ((E^2 - 4*D*F)^(.5));
-    let th3p_d = (-E - ((E^2 - 4*D*F)^(.5));
-    let th4_d = (-B + ((B^2 - 4*A*C)^(.5));
-    let th4p_d = (-B - ((B^2 - 4*A*C)^(.5));
+    let th3_d =  Math.SQRT1_2(-E + ((E^2 - 4*D*F)));
+    let th3p_d = Math.SQRT1_2(-E - ((E^2 - 4*D*F)));
+    let th4_d = Math.SQRT1_2(-B + ((B^2 - 4*A*C)));
+    let th4p_d = Math.SQRT1_2(-B - ((B^2 - 4*A*C)));
 
     //Find Solutions for th3 and th4
     let th3 = 2*Math.atan(th3_d)/(2*D)) * (180/Math.PI);
