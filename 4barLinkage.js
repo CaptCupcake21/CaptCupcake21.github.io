@@ -71,6 +71,18 @@ function solveLinkage() {
     if(th3_real != 1 && th3p != 1){
     
     }
+
+    console.log(k1);
+    console.log(k2);
+    console.log(k3);
+    console.log(k4);
+    console.log(k5);
+    console.log(A);
+    console.log(B);
+    console.log(C);
+    console.log(D);
+    console.log(E);
+    console.log(F);
        
 }
 
