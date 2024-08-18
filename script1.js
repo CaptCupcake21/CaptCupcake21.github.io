@@ -66,7 +66,7 @@ function calculateResults() {
 
     // Display Results
     document.getElementById("driveSpeed").textContent = `Drive Speed: ${driveSpeed.toFixed(2)} m/s (${(driveSpeed * mToFeet).toFixed(2)} ft/s)`;
-    document.getElementById("maxFlatTurnRate").textContent = `Max Flat Turn Rate: ${maxFlatTurnRate.toFixed(2)} %';
+    document.getElementById("maxFlatTurnRate").textContent = `Max Flat Turn Rate: ${maxFlatTurnRate.toFixed(2)} %`;
     document.getElementById("weaponRPM").textContent = `Weapon RPM: ${weaponRPM.toFixed(2)} RPM`;
     document.getElementById("tipSpeed").textContent = `Tip Speed: ${tipSpeed.toFixed(2)} m/s (${(tipSpeed * msToMPH).toFixed(2)} MPH)`;
     document.getElementById("weaponKE").textContent = `Weapon KE: ${weaponKE.toFixed(2)} J (${(weaponKE * jToFtLbs).toFixed(2)} ft·lbs)`;
