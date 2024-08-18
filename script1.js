@@ -23,16 +23,16 @@ function calculateResults() {
 
     // General Calculations
     const systemVoltage = cellCount * cellVoltage;
-    let robotMass = parseFloat(document.getElementById("robotMass").value) / 1000; //convert g to kg
+    let robotMass = parseFloat(document.getElementById("robotMass").value);
     const unitType = document.getElementById('units').value;
-    let distBetweenWheels = parseFloat(document.getElementById("distBetweenWheels").value) / 1000; //convert mm to m
+    let distBetweenWheels = parseFloat(document.getElementById("distBetweenWheels").value);
     if (unitType === 'english') {
         // Convert wheel diameter and weapon radius to metric
         wheelDiameter *= 25.4; // Convert inches to mm
         weaponRadius *= 25.4; // Convert inches to mm
         momentOfInertia *= 18289.978313; //convert ozin^2 to gmm^2
-        robotMass /= 35.274; //convert oz to kg
-        distBetweenWheels /= 39.37; //convert inches to m
+        robotMass *= 28.3495; //convert oz to g
+        distBetweenWheels *= 25.4; //convert inches to mm
     }
 
     // Drive Calculations
@@ -57,6 +57,8 @@ function calculateResults() {
     const bite = driveSpeed * biteTime * 1000; // Convert to mm
 
     // Gyro Calculations
+    distBetweenWheels /= 1000; //convert mm to m
+    robotMass /= 1000; //convert g to kg
     const tipMoment = (distBetweenWheels/2) * (robotMass * gravity); // M = (L^2)(m*g)
     const maxTurnSpeed = tipMoment/(maxWeaponRPM_Rad*momentOfInertia); // w_bot = M/(I*w_wep)
     const maxDriveSpeedOnTurn = maxTurnSpeed * (distBetweenWheels/2); // V = w_bot/(L/2)
