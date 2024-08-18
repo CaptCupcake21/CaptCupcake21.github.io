@@ -23,9 +23,9 @@ function calculateResults() {
 
     // General Calculations
     const systemVoltage = cellCount * cellVoltage;
-    const robotMass = parseFloat(document.getElementById("robotMass").value) / 1000; //convert g to kg
+    let robotMass = parseFloat(document.getElementById("robotMass").value) / 1000; //convert g to kg
     const unitType = document.getElementById('units').value;
-    const distBetweenWheels = parseFloat(document.getElementById("distBetweenWheels").value) / 1000; //convert mm to m
+    let distBetweenWheels = parseFloat(document.getElementById("distBetweenWheels").value) / 1000; //convert mm to m
     if (unitType === 'english') {
         // Convert wheel diameter and weapon radius to metric
         wheelDiameter *= 25.4; // Convert inches to mm
