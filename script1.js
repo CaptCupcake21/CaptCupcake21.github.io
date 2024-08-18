@@ -43,7 +43,10 @@ function calculateResults() {
 
     // Weapon Calculations
     momentOfInertia *= 1e-9; //convert gmm^2 to kgm^2
-    const weaponMotorRPM = weaponMotorKv * systemVoltage * weaponThrottlePercent;
+    const maxWeaponMotorRPM = weaponMotorKv * systemVoltage;
+    const maxWeaponRPM = maxWeaponMotorRPM * weaponGearing;
+    const maxWeaponRPM_Rad = maxWeaponRPM * ((2 * pi) / 60);
+    const weaponMotorRPM =  maxWeaponMotorRPM * weaponThrottlePercent;
     const weaponMotorRPM_Rad = weaponMotorRPM * ((2 * pi) / 60);
     const weaponRPM = weaponMotorRPM * weaponGearing;
     const weaponRPM_Rad = weaponMotorRPM_Rad * weaponGearing;
@@ -55,9 +58,16 @@ function calculateResults() {
 
     // Gyro Calculations
     const tipMoment = (distBetweenWheels/2) * (robotMass * gravity); // M = (L^2)(m*g)
-    const maxTurnSpeed = tipMoment/(weaponRPM_Rad*momentOfInertia); // w_bot = M/(I*w_wep)
+    const maxTurnSpeed = tipMoment/(maxWeaponRPM_Rad*momentOfInertia); // w_bot = M/(I*w_wep)
     const maxDriveSpeedOnTurn = maxTurnSpeed * (distBetweenWheels/2); // V = w_bot/(L/2)
     const maxFlatTurnRate = (maxDriveSpeedOnTurn / maxDriveSpeed)*100; // (V/Vmax)*100 
+
+    console.log(distBetweenWheels);
+    console.log(robotMass);
+    console.log(tipMoment);
+    console.log(maxTurnSpeed);
+    console.log(maxDriveSpeedOnTurn);
+    
     
     // Conversion factors
     const mToFeet = 3.28084;
