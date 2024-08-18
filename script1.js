@@ -25,14 +25,14 @@ function calculateResults() {
     const systemVoltage = cellCount * cellVoltage;
     const robotMass = parseFloat(document.getElementById("robotMass").value) / 1000; //convert g to kg
     const unitType = document.getElementById('units').value;
-    const distBetweenWheels = parseFloat(document.getElementById("distBetweenWheels").value);
+    const distBetweenWheels = parseFloat(document.getElementById("distBetweenWheels").value) / 1000; //convert mm to m
     if (unitType === 'english') {
         // Convert wheel diameter and weapon radius to metric
         wheelDiameter *= 25.4; // Convert inches to mm
         weaponRadius *= 25.4; // Convert inches to mm
         momentOfInertia *= 18289.978313; //convert ozin^2 to gmm^2
         robotMass *= 1/35.274; //convert oz to kg
-        distBetweenWheels *= 25.4; //convert inches to mm
+        distBetweenWheels *= 1/39.37; //convert inches to m
     }
 
     // Drive Calculations
