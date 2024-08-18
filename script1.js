@@ -54,7 +54,7 @@ function calculateResults() {
     const bite = driveSpeed * biteTime * 1000; // Convert to mm
 
     // Gyro Calculations
-    const tipMoment = (distBetweenWheels ** 2) * (robotMass * gravity); // M = (L^2)(m*g)
+    const tipMoment = (distBetweenWheels/2) * (robotMass * gravity); // M = (L^2)(m*g)
     const maxTurnSpeed = tipMoment/(weaponRPM_Rad*momentOfInertia); // w_bot = M/(I*w_wep)
     const maxDriveSpeedOnTurn = maxTurnSpeed * (distBetweenWheels/2); // V = w_bot/(L/2)
     const maxFlatTurnRate = (maxDriveSpeedOnTurn / maxDriveSpeed)*100; // (V/Vmax)*100 
