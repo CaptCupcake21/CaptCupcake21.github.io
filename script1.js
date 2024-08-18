@@ -42,7 +42,7 @@ function calculateResults() {
     const driveSpeed = maxDriveSpeed*driveThrottlePercent;
 
     // Weapon Calculations
-    const momentOfInertia *= 1e-9; //convert gmm^2 to kgm^2
+    momentOfInertia *= 1e-9; //convert gmm^2 to kgm^2
     const weaponMotorRPM = weaponMotorKv * systemVoltage * weaponThrottlePercent;
     const weaponMotorRPM_Rad = weaponMotorRPM * ((2 * pi) / 60);
     const weaponRPM = weaponMotorRPM * weaponGearing;
