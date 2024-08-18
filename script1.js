@@ -33,7 +33,6 @@ function calculateResults() {
         momentOfInertia *= 18289.978313; //convert ozin^2 to gmm^2
         robotMass *= 1/35.274; //convert oz to kg
         distBetweenWheels *= 25.4; //convert inches to mm
-        momentOfInertia *= 1e-9; //convert gmm^2 to kgm^2
     }
 
     // Drive Calculations
@@ -42,6 +41,7 @@ function calculateResults() {
     const driveSpeed = ((driveMotorRPM_Rad * driveGearing) * wheelRadius)*driveThrottlePercent;
 
     // Weapon Calculations
+    const momentOfInertia *= 1e-9; //convert gmm^2 to kgm^2
     const weaponMotorRPM = weaponMotorKv * systemVoltage * weaponThrottlePercent;
     const weaponMotorRPM_Rad = weaponMotorRPM * ((2 * pi) / 60);
     const weaponRPM = weaponMotorRPM * weaponGearing;
