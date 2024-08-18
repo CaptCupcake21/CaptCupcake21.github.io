@@ -5,7 +5,7 @@ function calculateResults() {
 
     // Power Inputs
     const cellCount = parseInt(document.getElementById("cellCount").value, 10);
-
+    
     // Drive Inputs
     let wheelDiameter = parseFloat(document.getElementById("wheelDiameter").value);
     const driveMotorRPM = parseInt(document.getElementById("driveMotorRPM").value);
@@ -22,13 +22,17 @@ function calculateResults() {
 
     // General Calculations
     const systemVoltage = cellCount * cellVoltage;
-
+    const robotMass = parseFloat(document.getElementById("robotMass").value) / 1000; //convert g to kg
     const unitType = document.getElementById('units').value;
+    const distBetweenWheels = parseFloat(document.getElementById("distBetweenWheels").value);
     if (unitType === 'english') {
         // Convert wheel diameter and weapon radius to metric
         wheelDiameter *= 25.4; // Convert inches to mm
         weaponRadius *= 25.4; // Convert inches to mm
         momentOfInertia *= 18289.978313; //convert ozin^2 to gmm^2
+        robotMass *= 1/35.274; //convert oz to kg
+        distBetweenWheels *= 25.4; //convert inches to mm
+        momentOfInertia *= 1e-9; //convert gmm^2 to kgm^2
     }
 
     // Drive Calculations
@@ -43,9 +47,14 @@ function calculateResults() {
     const weaponRPM_Rad = weaponMotorRPM_Rad * weaponGearing;
     const weaponRadiusInM = weaponRadius / 1000;
     const tipSpeed = weaponRPM_Rad * weaponRadiusInM;
-    const weaponKE = 0.5 * momentOfInertia * 1e-9 * (weaponRPM_Rad ** 2); // Convert g*mm^2 to kg*m^2
+    const weaponKE = 0.5 * momentOfInertia * (weaponRPM_Rad ** 2); 
     const biteTime = (2 * pi) / (numImpactors * weaponRPM_Rad);
     const bite = driveSpeed * biteTime * 1000; // Convert to mm
+
+    // Gyro Calculations
+   
+    
+
 
     // Conversion factors
     const mToFeet = 3.28084;
