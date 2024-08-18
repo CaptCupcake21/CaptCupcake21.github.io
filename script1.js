@@ -31,8 +31,8 @@ function calculateResults() {
         wheelDiameter *= 25.4; // Convert inches to mm
         weaponRadius *= 25.4; // Convert inches to mm
         momentOfInertia *= 18289.978313; //convert ozin^2 to gmm^2
-        robotMass *= 1/35.274; //convert oz to kg
-        distBetweenWheels *= 1/39.37; //convert inches to m
+        robotMass /= 35.274; //convert oz to kg
+        distBetweenWheels /= 39.37; //convert inches to m
     }
 
     // Drive Calculations
