@@ -1,6 +1,7 @@
 function calculateResults() {
     // Constants
-    const cellVoltage = 3.7;
+    const cellVoltage = 3.7; // V
+    const gravity = 9.81; // m/s^2
     const pi = 3.141592653589793238;
 
     // Power Inputs
@@ -52,10 +53,11 @@ function calculateResults() {
     const bite = driveSpeed * biteTime * 1000; // Convert to mm
 
     // Gyro Calculations
-   
+    const tipMoment = (distBetweenWheels ** 2) * (robotMass * gravity); // M = (L^2)(m*g)
+    const maxTurnSpeed = tipMoment/(weaponRPM_Rad*momentOfInertia); // w_bot = M/(I*w_wep)
+    const maxDriveSpeed = maxTurnSpeed * (distBetweenWheels/2); // V = w_bot/(L/2)
+    const maxFlatTurnRate = (maxDriveSpeed / ((driveMotorRPM_Rad * driveGearing) * wheelRadius))*100; // (V/Vmax)*100 
     
-
-
     // Conversion factors
     const mToFeet = 3.28084;
     const jToFtLbs = 0.737562;
@@ -64,6 +66,7 @@ function calculateResults() {
 
     // Display Results
     document.getElementById("driveSpeed").textContent = `Drive Speed: ${driveSpeed.toFixed(2)} m/s (${(driveSpeed * mToFeet).toFixed(2)} ft/s)`;
+    document.getElementById("maxFlatTurnRate").textContent = `Max Flat Turn Rate: ${maxFlatTurnRate.toFixed(2)} %';
     document.getElementById("weaponRPM").textContent = `Weapon RPM: ${weaponRPM.toFixed(2)} RPM`;
     document.getElementById("tipSpeed").textContent = `Tip Speed: ${tipSpeed.toFixed(2)} m/s (${(tipSpeed * msToMPH).toFixed(2)} MPH)`;
     document.getElementById("weaponKE").textContent = `Weapon KE: ${weaponKE.toFixed(2)} J (${(weaponKE * jToFtLbs).toFixed(2)} ft·lbs)`;
